@@ -1,0 +1,185 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-image: linear-gradient(
+                    rgba(255, 255, 255, 0.75),
+                    rgba(255, 255, 255, 0.75)
+                ), url(../../G-assets/imagenes/chibolos.jpg);
+            font-family: 'Times New Roman', Times, serif;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* ===== BOTÓN VOLVER ===== */
+        .volver-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: monospace;
+            font-size: 1.5rem;
+            background-color: #8a0303;
+            color: #fff;
+            border: 3px solid black;
+            border-radius: 5px;
+            padding: 5px 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .volver-btn:hover {
+            background-color: #c71818;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== FORMULARIO ===== */
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 450px;
+            padding: 30px;
+            border-radius: 20px;
+            font-size: 1rem;
+            background-color: #1a1a1a;
+            color: #fff;
+            border: 5px solid #c71818;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-top: 40px;
+        }
+        
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+            font-size: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c71818;
+            width: 100%;
+        }
+        
+        /* ===== GRUPOS DE FORMULARIO ===== */
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .form-group label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        
+        /* Etiquetas (texto) */
+        .form-label {
+            display: inline-block;
+            width: 100px; /* Ancho fijo para alinear */
+            text-align: right;
+            padding-right: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        
+        /* Selects */
+        .form-select {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            min-width: 250px;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: #c71818;
+            box-shadow: 0 0 0 3px rgba(199, 24, 24, 0.2);
+        }
+        
+        .form-select option {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        /* ===== BOTÓN MATRICULAR ===== */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .matricular-btn {
+            padding: 12px 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .matricular-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: #fff;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 500px) {
+            .form-container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .form-label {
+                width: 100%;
+                text-align: left;
+                padding-right: 0;
+                margin-bottom: 8px;
+            }
+            
+            .form-select {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .volver-btn {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+                align-self: flex-start;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+        

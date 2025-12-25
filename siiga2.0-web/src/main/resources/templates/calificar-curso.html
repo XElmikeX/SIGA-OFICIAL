@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calificar</title>
+    <link rel="stylesheet" th:href="@{/info/css-docente/docente.css}">
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+</head>
+<body>
+    <div class="fondo">
+
+        <div class="div1">
+            <h1>Curso: <span th:text="${nombreCurso}"></span></h1>
+        </div>
+        
+        <div class="div2">
+            <h2>Alumnos:</h2>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Alumno</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Promedio</th>
+                <th>Acción</th>
+            </tr>
+            <tr th:each="m : ${listaMatriculas}">
+                <td th:text="${m.alumno.username}"></td>
+                <form th:action="@{/profesor/guardar-nota}" method="post">
+                    <input type="hidden" name="matriculaId" th:value="${m.id}">
+                    <td><input name="nota1" th:value="${m.nota1}"></td>
+                    <td><input name="nota2" th:value="${m.nota2}"></td>
+                    <td th:text="${m.promedio}"></td>
+                    <td><button>Guardar</button></td>
+                </form>
+            </tr>
+        </table>
+        <a class="salirini" th:href="@{/horario-profesor}">← Volver</a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGA</title>
+
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+    <link rel="stylesheet" th:href="@{/paginacentral/css/Pract.css}">
+</head>
+<body id="menu">
+    <section id="interfas">
+        <article class="box">
+            <div class="minBox">
+                <div>
+                    <img th:src="@{/G-assets/imagenes/logo.png}" alt="Logo SIIGA" id="logo">
+                </div>
+                <div><h1>SIIGA</h1></div>
+            </div>
+            <div class="minBox">
+                <div>
+                    <a href="#contenedor" class="indice">Inicio</a>
+                </div>
+                <div>
+                    <a href="#creadores" class="indice" data-desplazamiento="-20px">Creadores</a>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section id="contenedor">
+        <!--Administrador-->
+        <div>
+            <a th:href="@{/login/ADMINISTRADOR}"><img class="opciones" th:src="@{/G-assets/imagenes/administrador.png}"></a>
+        </div>
+        <!--Estudiante-->
+        <div>
+            <a th:href="@{/login/ALUMNO}"><img class="opciones" th:src="@{/G-assets/imagenes/estudiante.png}"></a>
+        </div>  
+        <!--Docente--> 
+        <div>
+            <a th:href="@{/login/DOCENTE}"><img class="opciones" th:src="@{/G-assets/imagenes/docente.png}"></a>
+        </div>       
+    </section>
+    <section id="creadores">
+        <div class="creadores-container">
+            <h2 class="creadores-titulo">Nuestro Equipo de Desarrollo</h2>
+            <p class="creadores-descripcion">Conoce al equipo que hizo posible SIIGA</p>
+            
+            <div class="creadores-grid">
+                <!-- Creador 1 -->
+                <div class="creador-card">
+                    <div class="creador-foto">
+                        <img th:src="@{/G-assets/imagenes/anggela.png}" 
+                            alt="Foto del creador 1" class="foto-perfil">
+                    </div>
+                    <div class="creador-info">
+                        <h3 class="creador-nombre">Anggela Meza</h3>
+                        <p class="creador-cargo">Diseñadora Grafica</p>
+                        
+                        <div class="creador-contacto">
+                            <div class="contacto-item">
+                                <span class="contacto-icono">📧</span>
+                                <a href="mailto:anggelameza28@gmail.com" class="contacto-link">
+                                    anggelameza28@gmail.com
+                                </a>
+                            </div>
+                            <div class="contacto-item">
+                                <span class="contacto-icono">📱</span>
+                                <span class="contacto-texto">+51 957 924 963</span>
+                            </div>
+                            <div class="contacto-item">
+                                <span class="contacto-icono">💼</span>
+                                <span class="contacto-texto">Diseñadora Principal</span>
+                            </div>
+                        </div>
+                        
+                        <div class="creador-habilidades">
+                            <span class="habilidad">Java</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Creador 2 -->
+                <div class="creador-card">
+                    <div class="creador-foto">
+                        <img th:src="@{/G-assets/imagenes/urbano.png}"
+                            alt="Foto del creador 2" class="foto-perfil">
+                    </div>
+                    <div class="creador-info">
+                        <h3 class="creador-nombre">Urbano Elmer J.</h3>
+                        <p class="creador-cargo">Desarrollador Full Stack</p>
+                        
+                        <div class="creador-contacto">
+                            <div class="contacto-item">
+                                <span class="contacto-icono">📧</span>
+                                <a href="mailto:urbanodiaze@gmail.com" class="contacto-link">
+                                    urbanodiaze@gmail.com
+                                </a>
+                            </div>
+                            <div class="contacto-item">
+                                <span class="contacto-icono">📱</span>
+                                <span class="contacto-texto">+51 984 536 870</span>
+                            </div>
+                            <div class="contacto-item">
+                                <span class="contacto-icono">💼</span>
+                                <span class="contacto-texto">Lider Tecnico</span>
+                            </div>
+                        </div>
+                        
+                        <div class="creador-habilidades">
+                            <span class="habilidad">Html</span>
+                            <span class="habilidad">JavaScript</span>
+                            <span class="habilidad">Css</span>
+                            <span class="habilidad">Php</span>
+                            <span class="habilidad">Java</span>
+                            <span class="habilidad">PostgreSQL</span>
+                            <span class="habilidad">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Creador 3 -->
+                <div class="creador-card">
+                    <div class="creador-foto">
+                        <img th:src="@{/G-assets/imagenes/orejuela.png}" 
+                            alt="Foto del creador 3" class="foto-perfil">
+                    </div>
+                    <div class="creador-info">
+                        <h3 class="creador-nombre">Orejuela Joshua</h3>
+                        <p class="creador-cargo">Administrador de Base de Datos</p>
+                        
+                        <div class="creador-contacto">
+                            <div class="contacto-item">
+                                <span class="contacto-icono">📧</span>
+                                <a href="mailto:joshua.ore.12345@gmail.com" class="contacto-link">
+                                    joshua.ore.12345@gmail.com
+                                </a>
+                            </div>
+                            <div class="contacto-item">
+                                <span class="contacto-icono">📱</span>
+                                <span class="contacto-texto">+51 936 794 589</span>
+                            </div>
+                            <div class="contacto-item">
+                                <span class="contacto-icono">💼</span>
+                                <span class="contacto-texto">Especialista en Minecraft</span>
+                            </div>
+                        </div>
+                        
+                        <div class="creador-habilidades">
+                            <span class="habilidad">Html</span>
+                            <span class="habilidad">Css</span>
+                            <span class="habilidad">Java</span>
+                            <span class="habilidad">PostgreSQL</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script th:src="@{/paginacentral/js/desplazamiento.js}"></script>
+    <script th:src="@{/paginacentral/js/comentario.js}"></script>
+</body>
+</html>
+
+

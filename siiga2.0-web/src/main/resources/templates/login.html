@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Bienvenido ' + ${tipoAcceso}"></title>
+
+    <!-- los iconos de google,github, usos de diferentes iconos -->
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+
+    <!-- conexcion a la decoración-->
+    <link rel="stylesheet" th:href="@{/login/css/form.css}">
+
+    <!-- ICONO de la pagina web-->
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+
+</head>
+<body>
+    <!--   INICIO DE SESION   -->
+    <div class="container-form login">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido <span th:text="${tipoAcceso}"></span></h2>
+                <p>A nuestro SIGA web, espero que sea de su agrado</p>
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar sesión</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-github'></i>
+                    <i class='bx bxl-linkedin'></i>
+                </div>
+                <p>Rellenar las casillas correspondientes</p>
+            </div>
+            
+            <!-- Añadimos campo oculto para mantener el tipoAcceso -->
+            <form th:action="@{/login}" method="POST" class="form form-login" novalidate>
+                <input type="hidden" name="tipoAcceso" th:value="${tipoAcceso}">
+                
+                <div>
+                    <label>
+                        <i class='bx bx-envelope'></i>
+                        <input type="text" placeholder="Usuario" name="username" th:value="${param.username}" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Contraseña" name="password" required>
+                    </label>
+                </div>
+                
+                <input type="submit" value="Iniciar Sesión">
+                
+                <!-- Alertas principales (JavaScript las mostrará/ocultará) -->
+                <div class="alerta-exito" style="display: none;">Envio exitoso</div>
+                <div class="alerta-error" style="display: none;">Por favor, corrige los errores en los campos</div>
+                
+                <!-- Error del servidor (Spring lo mostrará si hay) -->
+                <div th:if="${error}" class="alerta-error-servidor">
+                    <span th:text="${error}"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/login/js/login_modulo.js}"></script>
+</body>
+</html>

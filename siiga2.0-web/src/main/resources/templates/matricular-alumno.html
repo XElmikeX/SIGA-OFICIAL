@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matricular Alumno</title>
+    <link rel="stylesheet" th:href="@{/info/css-admin/nvmatricula.css}">
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+</head>
+<body>
+    <!-- Botón Volver -->
+    <a class="volver-btn" th:href="@{/horario-admin}">← Volver</a>
+    
+    <!-- Contenedor del Formulario -->
+    <div class="form-container">
+        <h1>Matricular Alumno</h1>
+        
+        <form th:action="@{/matriculas/guardar}" method="post" id="formMatricula">
+            <!-- Campo Alumno -->
+            <div class="form-group">
+                <label>
+                    <span class="form-label">Alumno:</span>
+                    <select name="alumnoId" class="form-select" required>
+                        <option value="" disabled selected>Seleccione un alumno</option>
+                        <option th:each="a : ${alumnos}" 
+                                th:value="${a.id}" 
+                                th:text="${a.username}">
+                        </option>
+                    </select>
+                </label>
+            </div>
+            
+            <!-- Campo Curso -->
+            <div class="form-group">
+                <label>
+                    <span class="form-label">Curso:</span>
+                    <select name="cursoId" class="form-select" required>
+                        <option value="" disabled selected>Seleccione un curso</option>
+                        <option th:each="c : ${cursos}" 
+                                th:value="${c.id}" 
+                                th:text="${c.nombreCurso} + ' - ' + ${c.horario}">
+                        </option>
+                    </select>
+                </label>
+            </div>
+            
+            <!-- Botón Matricular -->
+            <div class="btn-container">
+                <button type="submit" class="matricular-btn">Matricular</button>
+            </div>
+        </form>
+        
+        <!-- Mensaje de éxito/error -->
+        <div class="mensaje" id="mensaje"></div>
+    </div>
+    
+    <script th:src="@{/js/matricula.js}"></script>
+</body>
+</html>

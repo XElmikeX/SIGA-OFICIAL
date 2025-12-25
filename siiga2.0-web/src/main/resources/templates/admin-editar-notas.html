@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Notas</title>
+    <link rel="stylesheet" th:href="@{/info/css-admin/editar.css}" />
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+</head>
+<body>
+    <h1>Curso: <span th:text="${nombreCurso}"></span></h1>
+    <h2>Editar Notas (Admin):</h2>
+    <div class="fondo">
+        <table>
+        <tr>
+            <th>Alumno</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Promedio</th>
+            <th>Acción</th>
+        </tr>
+                <!--${listaMatriculas} = FILAS DE LA MATRICULA-->
+        <tr th:each="m : ${listaMatriculas}">
+            <!--alumno : me devuelve el id del estudiante(BD matricula)-->
+            <!--username : usa esa ID y en la BD usuarios, se ubica de acuerdo a esa ID y da el nombre de esa ID-->
+            <td th:text="${m.alumno.username}"></td>
+            <form th:action="@{/admin/guardar-nota-segura}" method="post">
+                <td>
+                    <input type="hidden" name="matriculaId" th:value="${m.id}">
+                    <input type="number" name="nota1" th:value="${m.nota1}" step="0.1" min="0" max="20" required>
+                </td>
+                <td>
+                    <input type="number" name="nota2" th:value="${m.nota2}" step="0.1" min="0" max="20" required>
+                </td>
+                <td th:text="${m.promedio}"></td>
+                <td>
+                    <input type="password" name="codigoSecreto" placeholder="Código secreto" required>
+                    <button type="submit">Guardar</button>
+                </td>
+            </form>
+            
+        </tr>
+        </table>
+    
+        <p><a class="salirini" th:href="@{/horario-admin}">← Volver</a></p>
+    </div>
+    
+</body>
+</html>

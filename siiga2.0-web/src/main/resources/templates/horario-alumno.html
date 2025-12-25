@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alumno</title>
+    <link rel="stylesheet" th:href="@{/info/css-estudiante/tabla.css}">
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+</head>
+<body>
+    <a class="salirini" th:href="@{/}">Salir</a>
+    <div class="fondo">
+        <div>
+            <h1>Alumno:<span th:text="${nombreAlumno}"></span></h1>
+        </div>
+        
+        <div class="div">
+            <h2>Mis Cursos y Notas:</h2>
+        </div>
+        <table>
+            <tr>
+                <th>Curso</th>
+                <th>Horario</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Promedio</th>
+            </tr>
+            <tr th:each="m : ${listaMatriculas}">
+                <td th:text="${m.curso.nombreCurso}"></td>
+                <td th:text="${m.curso.horario}"></td>
+                <td>
+                    <span th:if="${m.nota1 != null}" th:text="${m.nota1}"></span>
+                    <span th:if="${m.nota1 == null}">0.0</span>
+                </td>
+                <td>
+                    <span th:if="${m.nota2 != null}" th:text="${m.nota2}"></span>
+                    <span th:if="${m.nota2 == null}">0.0</span>
+                </td>
+                <td>
+                    <span th:if="${m.promedio != null}" th:text="${m.promedio}"></span>
+                    <span th:if="${m.promedio == null}">0.0</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

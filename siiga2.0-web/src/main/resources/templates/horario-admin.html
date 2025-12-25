@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" th:href="@{/info/css-admin/tabla.css}">
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+</head>
+<body>
+    <div class="fondo">
+        <h1>Bienvenido, Administrador</h1>
+        
+        <div class="indice">
+            <a class="miniind1" th:href="@{/cursos/nuevo}">Crear Curso</a>
+            <a class="miniind2" th:href="@{/usuarios/nuevo}">Nuevo Usuario</a>
+            <a class="miniind3" th:href="@{/matriculas/nueva}">Matricular Alumno</a>
+        </div>
+        
+        <h2>Cursos:</h2>
+        
+        <table class="cursos">
+            <tr>
+                <th>ID</th>
+                <th>Curso</th>
+                <th>Horario</th>
+                <th>Docente</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="c : ${listaCursos}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.nombreCurso}"></td>
+                <td th:text="${c.horario}"></td>
+                <td th:text="${c.docenteUsername}"></td>
+                <td class="acciones">
+                    <div>
+                        <a th:href="@{/admin/curso/{id}(id=${c.id})}" class="editar">
+                        Editar Notas
+                        </a>
+                    </div>
+                    <div>
+                        <a th:href="@{/cursos/eliminar/{id}(id=${c.id})}" 
+                        class="eliminar"
+                        onclick="return confirm('¿Está seguro de eliminar este curso?');">
+                        Eliminar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <p><a class="salirini" th:href="@{/}">Salir</a></p>
+    </div>
+</body>
+</html>

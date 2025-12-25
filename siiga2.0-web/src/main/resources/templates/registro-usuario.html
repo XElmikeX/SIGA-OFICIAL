@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" th:href="@{/info/css-admin/nvuser.css}">
+    <link rel="icon" th:href="@{/G-assets/imagenes/logo.png}">
+</head>
+<body>
+    <!-- Botón Volver -->
+    <a class="volver-btn" th:href="@{/horario-admin}">← Volver</a>
+    
+    <!-- Formulario -->
+    <div class="form-container">
+        <h1>Registrar Nuevo Usuario</h1>
+        
+        <form th:action="@{/usuarios/guardar}" method="post" id="formUsuario" class="form-content">
+            <!-- Campo Usuario -->
+            <div class="input-group">
+                <label>
+                    <span class="input-label">Usuario:</span>
+                    <input type="text" name="username" class="form-input" required 
+                           placeholder="Nombre de usuario">
+                </label>
+            </div>
+            
+            <!-- Campo Contraseña -->
+            <div class="input-group">
+                <label>
+                    <span class="input-label">Contraseña:</span>
+                    <div class="password-container">
+                        <input type="password" name="password" class="form-input" required 
+                               id="password" placeholder="Password">
+                    </div>
+                </label>
+            </div>
+            
+            <!-- Campo Rol -->
+            <div class="input-group">
+                <label>
+                    <span class="input-label">Rol:</span>
+                    <select name="rol" class="form-select" required>
+                        <option value="" disabled selected>Seleccione un rol</option>
+                        <option th:each="rol : ${listaDeRoles}" 
+                                th:value="${rol}" 
+                                th:text="${rol}">
+                        </option>
+                    </select>
+                </label>
+            </div>
+            
+            <!-- Botón Guardar -->
+            <div class="btn-container">
+                <button type="submit" class="guardar-btn">Guardar</button>
+            </div>
+        </form>
+        
+        <!-- Mensajes -->
+        <div class="message" id="mensaje"></div>
+    </div>
+    
+    <script th:src="@{/js/registro-usuario.js}"></script>
+</body>
+</html>
