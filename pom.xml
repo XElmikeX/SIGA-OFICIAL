@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.uns</groupId>
-	<artifactId>siiga2.0-web</artifactId>
+	<artifactId>siiga2-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>siiga2.0-web</name>
+	<name>siiga2-web</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -28,8 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-                
-                <start-class>com.uns.siiga2.__web.Application</start-class>
+        <start-class>com.uns.siiga2.__web.Application</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
