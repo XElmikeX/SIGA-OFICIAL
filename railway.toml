@@ -1,0 +1,8 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "./Dockerfile"
+
+[deploy]
+startCommand = "java -jar -Dserver.port=${PORT} app.jar"
+healthcheckPath = "/"
+healthcheckTimeout = 100

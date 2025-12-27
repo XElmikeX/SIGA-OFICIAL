@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
         <start-class>com.uns.siiga2.__web.Application</start-class>
 	</properties>
 	<dependencies>
@@ -64,5 +64,13 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<plugin>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-maven-plugin</artifactId>
+		<configuration>
+			<mainClass>com.uns.siiga2.__web.Application</mainClass>
+		</configuration>
+	</plugin>
 
 </project>
