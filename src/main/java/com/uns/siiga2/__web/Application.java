@@ -12,6 +12,15 @@ public class Application {
         System.out.println("📊 Versión: 0.0.1-SNAPSHOT");
         System.out.println("🔧 Puerto: " + (System.getenv("PORT") != null ? System.getenv("PORT") : "8080"));
         System.out.println("💾 Java: " + System.getProperty("java.version"));
+        
+        // Debug: Muestra todas las variables de entorno relevantes
+        System.out.println("=== VARIABLES DE ENTORNO ===");
+        System.out.println("PGHOST: " + System.getenv("PGHOST"));
+        System.out.println("PGPORT: " + System.getenv("PGPORT"));
+        System.out.println("PGDATABASE: " + System.getenv("PGDATABASE"));
+        System.out.println("PGUSER: " + System.getenv("PGUSER"));
+        System.out.println("PGPASSWORD: " + (System.getenv("PGPASSWORD") != null ? "***SET***" : "NULL"));
+        
         System.out.println("==========================================");
         
         try {
