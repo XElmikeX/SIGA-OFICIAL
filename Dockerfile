@@ -9,5 +9,13 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8095
-ENTRYPOINT ["java", "-jar", "-Dserver.port=${PORT:-8095}", "app.jar"]
+
+# PARA DEBUG: Verifica que el JAR existe
+RUN ls -la /app/
+
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY target/*.jar app.jar
+
+EXPOSE ${PORT}
+ENTRYPOINT ["java", "-jar", "-Dserver.port=${PORT}", "app.jar"]
