@@ -1,14 +1,17 @@
+# railway.toml
 [build]
-builder = "DOCKERFILE"
-dockerfilePath = "./Dockerfile"
+builder = "NIXPACKS"
 
 [deploy]
-startCommand = "java -jar app.jar"
+startCommand = "java -Dserver.port=$PORT -jar target/siiga2-web-*.jar"
+
+[database]
+# Esto creará automáticamente una base de datos PostgreSQL en Railway
 
 [healthcheck]
-path = "/"
+path = "/actuator/health"
 timeout = "30s"
-interval = "15s"
+interval = "30s"
 retries = 3
 
 [restart]
