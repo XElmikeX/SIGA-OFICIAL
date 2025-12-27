@@ -10,7 +10,7 @@ dockerfilePath = "./Dockerfile"
 [database]
 
 [healthcheck]
-path = "/health"
+path = "/health"  # Ya está correcto
 timeout = "30s"
 interval = "15s"
 retries = 3
