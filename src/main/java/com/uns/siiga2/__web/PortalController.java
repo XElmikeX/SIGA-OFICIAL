@@ -4,6 +4,8 @@ import java.util.Optional; // Necesario para manejar usuarios que podrían no ex
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -384,5 +386,21 @@ public class PortalController {
         }
         
         return "redirect:/horario-admin";
+    }
+    @ControllerAdvice
+    public class GlobalExceptionHandler {
+
+        @ExceptionHandler(Exception.class)
+        public String handleException(Exception e, Model model) {
+            model.addAttribute("error", "Ocurrió un error: " + e.getMessage());
+            return "error";
+        }
+    }
+
+    // Y añade un método logout:
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 }

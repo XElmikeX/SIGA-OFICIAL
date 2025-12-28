@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: siiga-postgres
+    environment:
+      POSTGRES_DB: siiga_local
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - siiga-network
+
+  app:
+    build: .
+    container_name: siiga-app
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: siiga_local
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - siiga-network
+    restart: unless-stopped
+
+networks:
+  siiga-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
