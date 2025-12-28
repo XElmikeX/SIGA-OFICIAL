@@ -1,3 +1,6 @@
+#Se puede agregar más para ignorar
+#Sirve para que cargue más rapido el build(cuando lo subes)
+
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar

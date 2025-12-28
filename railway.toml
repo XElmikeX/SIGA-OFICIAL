@@ -1,16 +1,15 @@
-# railway.toml - VERSIÓN DOCKERFILE
+#Es la configuración especifica para railway,
+#sirve para poder desplegarlo en su plataforma.
+
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "./Dockerfile"
-
 [deploy]
-# IMPORTANTE: NO uses startCommand con Dockerfile, usa CMD en Dockerfile
-# startCommand = ""  # Déjalo vacío o elimina esta línea
 
 [database]
 
 [healthcheck]
-path = "/health"  # Ya está correcto
+path = "/health"
 timeout = "30s"
 interval = "15s"
 retries = 3
