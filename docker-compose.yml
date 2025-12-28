@@ -3,7 +3,7 @@ version: '3.8'
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: siiga-postgres
+    container_name: siiga-postgres-local
     environment:
       POSTGRES_DB: siiga_local
       POSTGRES_USER: postgres
@@ -13,11 +13,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - siiga-network
+      - siiga-network-local
 
   app:
     build: .
-    container_name: siiga-app
+    container_name: siiga-app-local
     environment:
       PGHOST: postgres
       PGPORT: 5432
@@ -30,11 +30,11 @@ services:
     depends_on:
       - postgres
     networks:
-      - siiga-network
+      - siiga-network-local
     restart: unless-stopped
 
 networks:
-  siiga-network:
+  siiga-network-local:
     driver: bridge
 
 volumes:
