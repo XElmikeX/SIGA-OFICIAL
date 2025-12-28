@@ -25,6 +25,9 @@ services:
       PGUSER: postgres
       PGPASSWORD: postgres
       PORT: 8080
+      # ¡ESTAS 2 SON NUEVAS! ↓
+      SPRING_THYMELEAF_CACHE: "false"
+      SPRING_DEVTOOLS_RESTART_ENABLED: "true"
     ports:
       - "8080:8080"
     depends_on:
@@ -32,6 +35,10 @@ services:
     networks:
       - siiga-network-local
     restart: unless-stopped
+    # ¡ESTAS 3 SON NUEVAS! ↓
+    volumes:
+      - ./src/main/resources/static:/app/static
+      - ./src/main/resources/templates:/app/templates
 
 networks:
   siiga-network-local:
