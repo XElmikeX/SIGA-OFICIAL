@@ -3,11 +3,7 @@
 
 target/
 .git/
-.gitignore
+.mvn/
 *.log
 *.iml
-.idea/
-.vscode/
-.DS_Store
-docker-compose.yml          # ¡NO subir el compose local!
-init-local-db.sh           # ¡NO subir scripts locales!
+*.idea

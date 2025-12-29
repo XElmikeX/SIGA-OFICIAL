@@ -34,16 +34,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# .gitignore
-target/
-*.log
-*.iml
-.idea/
-.vscode/
-.DS_Store
-docker-compose.yml          # No subir compose local
-docker-compose.*.yml        # Excepto railway
-!docker-compose.railway.yml # Este SÍ se sube
-init-local-db.sh           # Scripts locales NO
-.env                       # Variables locales NO
