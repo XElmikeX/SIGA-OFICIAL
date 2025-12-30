@@ -21,36 +21,37 @@
 	</properties>
 	
 	<dependencies>
+		<!-- Para bases de datos -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<!-- Para bases de datos -->
 			<artifactId>spring-boot-starter-data-jpa</artifactId> 
 		</dependency>
+		<!-- Para plantillas HTML -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<!-- Para plantillas HTML -->
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- Para aplicaciones web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<!-- Para aplicaciones web -->
 			<artifactId>spring-boot-starter-web</artifactId> 
 		</dependency>
-		<!--IMPORTANTE: PARA Q MI APP HABLE CON POSTGRESQL-->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		<!-- Para pruebas -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<!-- Para pruebas -->
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!--IMPORTANTE: PARA Q MI APP HABLE CON POSTGRESQL-->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<!--UTIL PARA VER EN TIEMPO REAL-->
