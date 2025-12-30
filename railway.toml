@@ -4,15 +4,10 @@
 [build]
 builder = "DOCKERFILE"
 dockerfilePath = "./Dockerfile"
+
 [deploy]
 
 [database]
-
-[healthcheck]
-path = "/health"
-timeout = "30s"
-interval = "15s"
-retries = 3
 
 [restart]
 policy = "on_failure"
