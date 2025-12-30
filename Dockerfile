@@ -1,31 +1,43 @@
-# Dockerfile - VERSIÓN CORREGIDA
-# Etapa 1: Build con Maven
+# 1. BASE: "Comprar la cocina"
 FROM maven:3.9.9-eclipse-temurin-17 AS build
-WORKDIR /app
+# "Usa una cocina con Maven 3.9.9 y Java 17 instalados"
 
-# Copiar solo el pom.xml primero para cachear dependencias
+# 2. PREPARAR: "Organizar la cocina"
+WORKDIR /app
+# "Trabajar en el área /app de la cocina"
+
+# 3. INGREDIENTES: "Poner los ingredientes en la mesa"
 COPY pom.xml .
+# "Primero solo el pom.xml (la lista de compras)"
+
+# 4. PRE-COCINA: "Preparar herramientas"
 RUN mvn dependency:go-offline -B
+# "Descargar todas las dependencias ANTES (cache inteligente)"
 
-# Copiar código fuente
+# 5. MÁS INGREDIENTES: "Traer el resto"
 COPY src ./src
+# "Ahora traer todo el código fuente"
 
-# Construir la aplicación
+# 6. COCINAR: "Preparar el plato"
 RUN mvn clean package -DskipTests
+# "Compilar y empaquetar la aplicación (sin pruebas)"
 
-# Etapa 2: Runtime
+# 7. PLATO FINAL: "Servir en plato limpio"
 FROM eclipse-temurin:17-jre-alpine
+# "Tomar un plato limpio (solo Java 17, más pequeño)"
+
+# 8. PRESENTACIÓN: "Decorar el plato"
 WORKDIR /app
+# "Organizar el área de servicio"
 
-# Copiar JAR desde etapa de build
+# 9. TRANSPORTAR: "Poner la comida en el plato"
 COPY --from=build /app/target/siiga2-web-0.0.1-SNAPSHOT.jar app.jar
+# "Tomar solo el JAR final del paso 6"
 
-# Exponer puerto
+# 10. ETIQUETA: "Indicar cómo se sirve"
 EXPOSE 8080
+# "Este plato se sirve por el puerto 8080"
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
-
-# Comando de inicio - Maneja PORT de Railway
+# 11. INSTRUCCIONES: "Cómo consumirlo"
 ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT:-8080} -jar app.jar"]
+# "Instrucciones finales: ejecutar Java con el puerto correcto"
