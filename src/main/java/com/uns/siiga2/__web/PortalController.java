@@ -280,7 +280,10 @@ public class PortalController {
         Usuario alumno = usuarioRepository.findById(alumnoId).orElse(null);
         Curso curso = cursoRepository.findById(cursoId).orElse(null);
         
-        if (alumno != null && curso != null) {
+        boolean exiteLaMatricula = matriculaRepository.existsByCursoIdAndAlumnoId(cursoId, alumnoId);
+
+        if(!exiteLaMatricula){
+            if (alumno != null && curso != null) {
             // 2. Creamos la nueva matrícula
             Matricula nuevaMatricula = new Matricula();
             nuevaMatricula.setAlumno(alumno);
@@ -293,8 +296,8 @@ public class PortalController {
             
             // 3. Guardamos en la base de datos
             matriculaRepository.save(nuevaMatricula);
+            }
         }
-        
         return "redirect:/horario-admin";
     }
     

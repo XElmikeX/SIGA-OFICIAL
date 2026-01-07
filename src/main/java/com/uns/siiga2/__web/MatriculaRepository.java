@@ -19,5 +19,5 @@ public interface MatriculaRepository extends JpaRepository<Matricula, Long> {
     
     // 3. Para evitar duplicados (Opcional pero útil):
     // Buscar si un alumno YA está en un curso específico.
-    Matricula findByCursoIdAndAlumnoId(Long cursoId, Long alumnoId);
+    Boolean existsByCursoIdAndAlumnoId(Long cursoId, Long alumnoId);
 }
